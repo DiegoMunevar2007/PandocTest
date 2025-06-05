@@ -1,6 +1,6 @@
 
 --[[
-Cupitaller
+Referencias
 Tomado de: https://gist.github.com/tarleb/a0646da1834318d4f71a780edaf9f870
 https://github.com/jgm/pandoc/issues/7743
 
@@ -91,4 +91,24 @@ function Inlines (inlines)
     result:extend(markup)
   end
   return result
+end
+------------------------------------
+-- https://forum.obsidian.md/t/rendering-callouts-similarly-in-pandoc/40020/6
+local stringify = (require "pandoc.utils").stringify
+
+function BlockQuote (el)
+    start = el.content[1]
+    if (start.t == "Para" and start.content[1].t == "Str" and
+        start.content[1].text:match("^%[!%w+%][-+]?$")) then
+        _, _, ctype = start.content[1].text:find("%[!(%w+)%]")
+        el.content:remove(1)
+        start.content:remove(1)
+        div = pandoc.Div(el.content, {class = "callout"})
+        div.attributes["data-callout"] = ctype:lower()
+        div.attributes["title"] = stringify(start.content):gsub("^ ", "")
+        div.attributes["custom-style"] = "Callout"
+        return div
+    else
+        return el
+    end
 end

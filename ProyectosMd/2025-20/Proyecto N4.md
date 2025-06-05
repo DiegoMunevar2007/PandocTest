@@ -1,6 +1,10 @@
 # IP - 2025-10
 # N4-PROY: Educación en Colombia
 
+> [!NOTE]- Note Title 
+> 
+>**MUY IMPORTANTE:** Este proyecto debe desarrollarse de forma individual y el entregable debe ser 100% de su autoría. No está permitido utilizar ayudas no autorizadas (incluyendo chatbots o tecnologías similares), ni emplear temas o sintaxis que no hayan sido estudiados en el curso. El incumplimiento de lo anterior resultará en una calificación de cero (0.0) para todo el Nivel 4 y puede resultar en un proceso disciplinario.
+
 ## Objetivo general
 Practicar los conceptos clave estudiados en el Nivel 4 del curso
 
@@ -30,4 +34,4 @@ Se requiere que cargue un archivo CSV con la información del dataset y la organ
 | `ANIO`               | Año de referencia de los datos. **Los datos cubren el rango entre 2011 y 2023.** | `int` | `2023`       |
 | `MUNICIPIO`          | Nombre del municipio.                                                            | `str` | `"Medellin"` |
 			 **Tabla 1.** Descripción de las columnas del archivo: educacion.csv. 
-![Imagen](Archivo/image.png)
+![**Figura 1.** Gráfica de barras que representa el top 10 de municipios con más deserción en 2023.](Archivo/image-1.png)
