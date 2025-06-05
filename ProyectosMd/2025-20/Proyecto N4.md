@@ -26,12 +26,41 @@ En Colombia, la educación desempeña un papel crucial en el desarrollo social y
 
 ==Nota importante:== **1) Usted debe cumplir todas las [buenas prácticas del curso](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/). 2) Lo anterior incluye que usted debe crear como mínimo un doctest por cada función en la lógica** que no produzca gráficos (es decir, se exceptúa a los requerimientos 2, 3 y 8). 
 
-#### Requerimiento 1 – Carga de datos
-Se requiere que cargue un archivo CSV con la información del dataset y la organice en un DataFrame usando Pandas. Cree una función que reciba el nombre del archivo como único parámetro (str), cargue los datos en el DataFrame y lo retorne. El archivo a cargar se denomina educacion.csv y contiene las columnas explicadas en la Tabla 1: 
+**Bono:** Si crea al menos 3 doctests por cada función (no gráfica) y **todos** son correctos, documentados, significativos, no redundantes y **basados completamente en temas estudiados en el curso**, obtendrá un bono de **0.25**, aplicables **solo** a la nota final de este proyecto.
 
-| Nombre de la columna | Descripción                                                                      | Tipo  | Ejemplo      |
-| -------------------- | -------------------------------------------------------------------------------- | ----- | ------------ |
-| `ANIO`               | Año de referencia de los datos. **Los datos cubren el rango entre 2011 y 2023.** | `int` | `2023`       |
-| `MUNICIPIO`          | Nombre del municipio.                                                            | `str` | `"Medellin"` |
+#### Requerimiento 1 – Carga de datos
+Se requiere que cargue un archivo CSV con la información del dataset y la organice en un DataFrame usando Pandas. Cree una función que reciba el nombre del archivo como único parámetro (`str`), cargue los datos en el *DataFrame* y lo retorne. El archivo a cargar se denomina `educacion.csv` y contiene las columnas explicadas en la Tabla 1: 
+
+| Nombre de la columna | Descripción                                                                      | Tipo de dato | Ejemplo      |
+| -------------------- | -------------------------------------------------------------------------------- | ------------ | ------------ |
+| `ANIO`               | Año de referencia de los datos. **Los datos cubren el rango entre 2011 y 2023.** | `int`        | `2023`       |
+| `MUNICIPIO`          | Nombre del municipio.                                                            | `str`        | `"Medellin"` |
 			 **Tabla 1.** Descripción de las columnas del archivo: educacion.csv. 
+
+Las funciones [pandas.describe()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html), [pandas.unique()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.unique.html) y [pandas.filter()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.filter.html) pueden ser de gran utilidad para explorar y comprender el contenido del archivo
+
+#### Requerimiento 2 – Top 10 municipios con más deserción
+Se requiere conocer el ranking de los 10 municipios de Colombia con más deserción dado un año de consulta. Para ello, implemente una función que genere un gráfico de barras horizontal usando *Pandas*, configurando títulos tanto para los ejes como para el gráfico.
 ![**Figura 1.** Gráfica de barras que representa el top 10 de municipios con más deserción en 2023.](Archivo/image-1.png)
+
+Texto...
+
+Código:
+```python
+import matplotlib.patches as mpatches 
+# Define los colores para cada rango de cobertura: 
+colores = { "<20": [0.0, 0.0, 0.0], # Negro para cobertura < 20% 
+			"20 a <40": [1.0, 0.0, 0.0], # Rojo para 20-40% 
+			"40 a <60": [1.0, 0.6, 0.0], # Naranja para 40-60% 
+			"60 a <80": [1.0, 1.0, 0.0], # Amarillo para 60-80% 
+			"80 a <90": [0.6, 1.0, 0.6], # Verde claro para 80-90% 
+			">=90": [0.0, 0.5, 0.0] # Verde oscuro para ≥ 90% } 
+# … 
+# Añade la leyenda al mapa: 
+legends = [] 
+for i in colores: 
+	legends.append(mpatches.Patch(color=colores[i], label=i)) plt.legend(handles=legends, loc=3, fontsize="large") 
+plt.title( "Cobertura por departamento en el año '{}'".format(año), fontsize="large" 
+) 
+plt.show()
+```
