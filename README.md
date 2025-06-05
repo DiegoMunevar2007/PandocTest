@@ -12,3 +12,7 @@ Esto solo es una prueba para convertir archivos Markdown a Docx utilizando Pando
 - `-v "$(pwd)/ProyectosDocx:/app/ProyectosDocx"`: Monta el directorio `ProyectosDocx` del host al contenedor.
 - `-w /app`: Establece el directorio de trabajo dentro del contenedor a `/app`.
 - `pandoc-converter`: Nombre de la imagen del contenedor que se ejecuta.
+### Known problems
+- Existe un problema con las imagenes, donde no se pueden mostrar.
+- El formato de algunas columnas en las tablas puede no ser el esperado.
+- Los pies de página de las imagenes no se muestran con la tipografía esperada.

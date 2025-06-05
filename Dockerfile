@@ -4,6 +4,7 @@ RUN apk add --no-cache git
 
 COPY ./convertirMdDocx.sh /app/convertirMdDocx.sh
 COPY ./reference.docx /app/reference.docx
+COPY ./highlight.lua /app/highlight.lua
 RUN chmod +x /app/convertirMdDocx.sh
 RUN chmod +x /app/reference.docx
 

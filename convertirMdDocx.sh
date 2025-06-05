@@ -9,7 +9,8 @@ find . -type f -name "*.md" | while read file; do
     mkdir -p "/app/ProyectosDocx/$dirArchivoMd"
     echo "Procesando archivo: $file"
     # Convertir el archivo .md a .docx
-    pandoc "$file" -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" --reference-doc=/app/reference.docx
+    # Tiene un filtro de lua que encontré para los highlights usando ==cosa== jeje - Diego 
+    pandoc "$file" -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" --reference-doc=/app/reference.docx --lua-filter=/app/highlight.lua
     echo "-> Convertido: $file -> /app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")"
 done
 
