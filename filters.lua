@@ -1,4 +1,3 @@
-
 --[[
 Referencias
 Tomado de: https://gist.github.com/tarleb/a0646da1834318d4f71a780edaf9f870
@@ -112,3 +111,6 @@ function BlockQuote (el)
         return el
     end
 end
+
+-----
+

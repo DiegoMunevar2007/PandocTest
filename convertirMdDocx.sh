@@ -8,11 +8,18 @@ find . -type f -name "*.md" | while read file; do
     # Replicar la estructura de directorios correspondiente en ProyectosDocx
     mkdir -p "/app/ProyectosDocx/$dirArchivoMd"
     echo "Procesando archivo: $file"
+
+    # Crear un archivo de markdown extendido de pandoc 
+    pandoc "$file" -f markdown -t markdown -o "temp.md"
+
     # Convertir el archivo .md a .docx
     # Tiene un filtro de lua que encontré para los highlights usando ==cosa== jeje - Diego 
     # https://github.com/jgm/pandoc/issues/8099
-    pandoc "$file" -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" --reference-doc=/app/reference.docx --lua-filter=/app/filters.lua --from=markdown+rebase_relative_paths
+    pandoc "temp.md" -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" --reference-doc=/app/reference.docx --lua-filter=/app/filters.lua --from=markdown+rebase_relative_paths
     echo "-> Convertido: $file -> /app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")"
+    # Eliminar el archivo temporal
+    rm "/app/ProyectosMd/$dirArchivoMd/temp.md"
+
 done
 
 echo "Terminé :)"
