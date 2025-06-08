@@ -4,18 +4,8 @@ FROM pandoc/core
 RUN apk add --no-cache \
     python3 \
     py3-pip \
-    py3-cffi \
-    cairo \
-    pango \
-    gdk-pixbuf \
-    libffi \
+    py3-weasyprint \
     git
-
-# Crear un entorno virtual para Python
-RUN python3 -m venv /venv
-
-# Activar el entorno virtual y luego instalar WeasyPrint
-RUN /venv/bin/pip install weasyprint
 
 # Cambiar a directorio app
 WORKDIR /app

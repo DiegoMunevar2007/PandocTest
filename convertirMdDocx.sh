@@ -17,6 +17,8 @@ find . -type f -name "*.md" | while read file; do
     # https://github.com/jgm/pandoc/issues/8099
     pandoc "temp.md" -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" --reference-doc=/app/reference.docx --lua-filter=/app/filters.lua --from=markdown+rebase_relative_paths
     echo "-> Convertido: $file -> /app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")"
+    echo $file
+    pandoc "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.docx")" -f docx -t pdf -o "/app/ProyectosDocx/$dirArchivoMd/$(basename "${file%.md}.pdf")" --pdf-engine="weasyprint" 
     # Eliminar el archivo temporal
     rm "/app/ProyectosMd/$dirArchivoMd/temp.md"
 
