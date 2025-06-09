@@ -113,4 +113,12 @@ function BlockQuote (el)
 end
 
 -----
+-- Filtro para convertir <br> en pandoc.LineBreak
+
+function LineBreak(el)
+  if el.text:match("<br%s*/?>") then
+    return pandoc.LineBreak()
+  end
+end
+
 

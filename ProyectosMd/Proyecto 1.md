@@ -1,7 +1,7 @@
 # IP - 2025-20
 # N1-PROY: Calculadora de servicios en la nube
 
-> [!NOTE]- Advertencia
+> [!warning]- Advertencia
 > 
 >**MUY IMPORTANTE:** Este proyecto debe desarrollarse de forma individual y el entregable debe ser 100% de su autoría. No está permitido utilizar ayudas no autorizadas (incluyendo chatbots o tecnologías similares), ni emplear temas o sintaxis que no hayan sido estudiados en el curso. El incumplimiento de lo anterior resultará en una calificación de cero (0.0) para todo el Nivel 1 y puede resultar en un proceso disciplinario.
 
@@ -9,12 +9,13 @@
 El objetivo general de este proyecto es que usted practique los conceptos estudiados en el nivel 1 del curso. Recuerde que este proyecto debe realizarse de forma **completamente individual**.
 
 ## Objetivos específicos
+
 1. Crear funciones.
 2. Llamar funciones con parámetros.
 3. Llamar funciones desde otras funciones (composición de funciones).
 4. Crear y usar un módulo.
 5. Probar las funciones de un módulo.
-6. Construir interfaces de usuario basadas en consola.
+6. Construir interfaces de usuario basadas en consola.
 
 En este proyecto se va a crear una aplicación que calcula los costos de algunos servicios prestados por la nube de AWS (Amazon Web Services), así como algunos tiempos de transferencia de archivos y conversiones entre unidades de tamaño de archivos.
 
@@ -68,7 +69,7 @@ El ancho de banda que se contrata con un proveedor de servicios de Internet (ISP
 4. Defina e implemente funciones en su nuevo archivo de acuerdo con la siguiente información.
 
 
-==ATENCIÓN==: para asegurar que no haya problemas durante el proceso de calificación, usted debe definir las funciones con los nombres, parámetros y tipos exactos que se presentan a continuación. Las funciones deben estar definidas en el mismo orden. **NOTA:** **Asuma meses de 30 días y en las respuestas redondee todos los números de punto flotante a dos decimales.**
+==ATENCIÓN:== Para asegurar que no haya problemas durante el proceso de calificación, usted debe definir las funciones con los nombres, parámetros y tipos exactos que se presentan a continuación. Las funciones deben estar definidas en el mismo orden. **NOTA:** **Asuma meses de 30 días y en las respuestas redondee todos los números de punto flotante a dos decimales.**
 
 ---
 
@@ -188,7 +189,7 @@ import calculadora_aws as calc
 
 7. Implemente cada uno de los seis programas de interfaz por consola. Cada uno de estos debe pedirle al usuario los datos necesarios para resolver el problema y debe informarle de su resultado. A modo de ejemplo, la siguiente imagen muestra lo que podría ser el resultado del ejecutar el programa “``consola_costo_total.py``”.
 
-![**Figura 1**: Ejemplo de ejecución de consola_costo_total.py](Archivo/ejemplo-costo-total.png)
+![**Figura 1:** Ejemplo de ejecución de consola_costo_total.py](Archivo/ejemplo-costo-total.png)
 
 8. Ejecute cada uno de los 6 programas para asegurarse que estén funcionando.
 
@@ -219,3 +220,7 @@ import calculadora_aws as calc
 
 11. Comprima la carpeta con su proyecto resuelto. El archivo debería llamarse **N1-PROY-login.zip**, donde login es su nombre de usuario de Uniandes.
 12. Entregue el archivo comprimido a través de Brightspace en la actividad del nivel 1 designada como **Proyecto del Nivel 1**.
+
+> [!warning]- Advertencia
+> 
+>**MUY IMPORTANTE:** Este proyecto debe desarrollarse de forma individual y el entregable debe ser 100% de su autoría. No está permitido utilizar ayudas no autorizadas (incluyendo chatbots o tecnologías similares), ni emplear temas o sintaxis que no hayan sido estudiados en el curso. El incumplimiento de lo anterior resultará en una calificación de cero (0.0) para todo el Nivel 1 y puede resultar en un proceso disciplinario.
